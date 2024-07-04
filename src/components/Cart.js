@@ -34,19 +34,17 @@ function Cart() {
     setQuantity((prevCount) => prevCount + 1);
     let finalItems = cloneDeep(cartItem);
     let existingItem = finalItems.find((ele) => ele.id === test.id);
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      const newItem = {
-        id: test.id,
-        name: test.name,
-        price: test.price,
-        quantity: 1,
-      };
-      finalItems = [...finalItems, newItem];
-    }
+    existingItem.quantity++;
     setCartItem(finalItems);
   };
+
+  const handleDelete = (id) => {
+    let finalItems = cloneDeep(cartItem);
+    let existingItem = finalItems.find((ele) => ele.id === id);
+    setQuantity((prevCount) => prevCount - existingItem.quantity);
+    finalItems = finalItems.filter((ele) => ele.id !== id);
+    setCartItem(finalItems)
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -76,13 +74,13 @@ function Cart() {
                   <button
                     className="border-2 border-gray-300 w-6 rounded bg-gray-100"
                     onClick={() => handleAdd(item)}
-                    disabled={quantity === 5}
+                    disabled={item.quantity === 5}
                   >
                     +
                   </button>
                 </div>
-                <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
-                  Remove
+                <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-4 rounded" onClick={() => handleDelete(item.id)}>
+                  Delete
                 </button>
               </div>
             </li>
@@ -93,7 +91,7 @@ function Cart() {
         <span className="text-lg">${subtotal.toFixed(2)}</span>
       </div>
       <button
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded w-full"
+        className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold text-xl py-2 px-4 rounded w-full"
         disabled={cartItem.length === 0}
         onClick={handleCheckout}
       >

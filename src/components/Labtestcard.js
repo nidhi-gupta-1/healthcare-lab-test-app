@@ -1,7 +1,7 @@
 import React from "react";
 import { NavContext } from "../Context";
 import { cloneDeep } from "lodash";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const LabTestCard = ({ test }) => {
   const { cartItem, setCartItem, setQuantity, quantity } =
@@ -36,8 +36,8 @@ const LabTestCard = ({ test }) => {
     if (!existingItem || existingItem.quantity <= 5) {
       setQuantity((prevState) => prevState + selectQuantity);
       setCartItem(finalItems);
-      if(type === 'book'){
-        history('/cart', { replace: true });
+      if (type === "book") {
+        history("/cart", { replace: true });
       }
     } else {
       existingItem.quantity = quantity;
@@ -68,16 +68,16 @@ const LabTestCard = ({ test }) => {
         </select>
         <div>
           <button
-            className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-2 rounded"
-            onClick={() => handleAddToCart("book")}
-          >
-            Book Now
-          </button>
-          <button
-            className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4  mr-2 rounded"
             onClick={() => handleAddToCart("cart")}
           >
             Add to Cart
+          </button>
+          <button
+            className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+            onClick={() => handleAddToCart("book")}
+          >
+            Book Now
           </button>
         </div>
       </div>
