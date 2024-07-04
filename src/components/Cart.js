@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import { cloneDeep } from "lodash";
 
 function Cart() {
-  const { cartItem, setCartItem, setQuantity, quantity } =
+  const { cartItem, setCartItem, setQuantity } =
     React.useContext(NavContext);
 
   const subtotal = cartItem.reduce(
