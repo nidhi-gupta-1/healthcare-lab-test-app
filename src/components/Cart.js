@@ -48,7 +48,7 @@ function Cart() {
 
   return (
     <div className="container mx-auto p-4">
-      <Navbar {...{ title: "Shopping Cart", isCart: false }} />
+      <Navbar {...{ title: "Cart", isCart: false }} />
       <ul className="list-none mb-4">
         {cartItem.length > 0 &&
           cartItem.map((item) => (
