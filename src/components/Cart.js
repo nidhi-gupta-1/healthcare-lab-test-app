@@ -49,10 +49,11 @@ function Cart() {
   return (
     <div className="container mx-auto p-4">
       <Navbar {...{ title: "Cart", isCart: false }} />
-      <ul className="list-none mb-4">
+      <div className="bg-gray-200 rounded">
+      <ul className="list-none">
         {cartItem.length > 0 &&
           cartItem.map((item) => (
-            <li key={item.id} className="flex justify-between mb-4">
+            <li key={item.id} className="flex justify-between p-2">
               <div className="flex items-center">
                 <img
                   src={`https://via.placeholder.com/50x50`}
@@ -63,7 +64,7 @@ function Cart() {
               </div>
               <div className="flex items-center">
                 <span className="text-lg">${item.price}</span>
-                <div className="ml-2 mr-2 bg-gray-200">
+                <div className="ml-2 mr-2 bg-gray-300">
                   <button
                     className="border-2 border-gray-300 w-6 rounded bg-gray-100"
                     onClick={() => handleRemove(item.id)}
@@ -86,9 +87,10 @@ function Cart() {
             </li>
           ))}
       </ul>
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between mb-4 p-2">
         <span className="text-lg">Subtotal:</span>
         <span className="text-lg">${subtotal.toFixed(2)}</span>
+      </div>
       </div>
       <button
         className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold text-xl py-2 px-4 rounded w-full"

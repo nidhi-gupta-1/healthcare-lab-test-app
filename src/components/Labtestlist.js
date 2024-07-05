@@ -17,7 +17,7 @@ const LabTestList = () => {
 
   return (
     <div className="container mx-auto p-4">
-        <Navbar {...{title: 'Lab Tests', isCart: true }}/>
+        <Navbar {...{title: 'Laboratory Tests', isCart: true }}/>
       {loading? (
         <p className="text-gray-600">Loading...</p>
       ) : (
