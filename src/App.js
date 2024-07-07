@@ -6,7 +6,7 @@ import { NavProvider } from './Context';
 
 const App = () => {
   return (
-    <div className="w-full h-full bg-cover bg-center bg-no-repeat md:h-screen bg-hero">
+    <div className="w-screen min-h-screen bg-cover bg-center bg-no-repeat md:h-screen bg-hero">
       <NavProvider>
       <BrowserRouter>
       <Routes>
